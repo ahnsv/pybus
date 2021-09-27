@@ -33,4 +33,6 @@ class DefaultMessageBus(MessageBus):
             )  # TODO(humphrey): check if event handler or command handler
             if result:
                 results.append(result)
+        if not results:
+            return
         return results
