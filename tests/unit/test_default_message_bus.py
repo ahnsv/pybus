@@ -1,7 +1,10 @@
-from pybus.core.message import Command
-from dataclasses import dataclass, field
-import pytest
+from dataclasses import Field, dataclass, field
+from typing import Union
 from uuid import UUID, uuid4
+
+import pytest
+
+from pybus.core.message import Command
 from pybus.default.messagebus import DefaultMessageBus
 
 
@@ -56,7 +59,7 @@ def test_default_message_bus_handler_with_extra_parameter_should_pass(
     fake_default_message_bus: DefaultMessageBus,
 ):
     class FakeCommand(Command):
-        id: str
+        id: Union[UUID, str] = Field(default_factory=uuid4)
         name: str
 
     @dataclass

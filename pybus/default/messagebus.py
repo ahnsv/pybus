@@ -25,10 +25,12 @@ class DefaultMessageBus(MessageBus):
 
         return message_handler_wrapper
 
-    def handle(self, message: Message):
+    def handle(self, message: Message) -> t.List[t.Any]:
         results = []
         for handler in self._handlers[type(message)]:
-            result = handler(message) # TODO(humphrey): check if event handler or command handler
+            result = handler(
+                message
+            )  # TODO(humphrey): check if event handler or command handler
             if result:
                 results.append(result)
         return results

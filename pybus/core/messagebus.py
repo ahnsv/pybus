@@ -1,6 +1,7 @@
-from abc import ABC, abstractmethod
-from pybus.core.message import Message
 import typing as t
+from abc import ABC, abstractmethod
+
+from pybus.core.message import Message
 
 
 class MessageBus(ABC):
@@ -9,7 +10,7 @@ class MessageBus(ABC):
         pass
 
     @abstractmethod
-    def subscribe(self, message: Message, message_handler: t.Callable):
+    def subscribe(self, message: Message):
         pass
 
     @abstractmethod
