@@ -1,8 +1,13 @@
 [tool.poetry]
-name = "pybus"
+name = "py_bus"
 version = "0.1.0"
 description = "Type-safe, high-performance message bus for python users"
 authors = ["ahnsv <ahnsv@bc.edu>"]
+packages = [
+    {include="pybus"}
+]
+homepage = "https://github.com/ahnsv/pybus"
+keywords = ["messagebus", "message bus", "command", "event", "cqrs"]
 
 [tool.poetry.dependencies]
 python = ">=3.6.2,<3.9"
