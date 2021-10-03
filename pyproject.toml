@@ -20,6 +20,7 @@ isort = "^5.9.3"
 pycln = "^1.0.3"
 mypy = "^0.910"
 black = "21.5b2"
+pytest-benchmark = "^3.4.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
