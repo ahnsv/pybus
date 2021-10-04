@@ -1,6 +1,7 @@
-from dataclasses import Field, dataclass, field
+from dataclasses import dataclass, field
 from typing import Union
 from uuid import UUID, uuid4
+from pydantic import Field
 
 import pytest
 
@@ -19,6 +20,7 @@ def test_default_message_bus_add_handler(fake_default_message_bus: DefaultMessag
         name: str
 
     def handle_fake_command(cmd: Command):
+        print(cmd)
         pass
 
     fake_default_message_bus.add_handler(FakeCommand, handle_fake_command)
@@ -60,12 +62,15 @@ def test_default_message_bus_handler_with_extra_parameter_should_pass(
 ):
     class FakeCommand(Command):
         id: Union[UUID, str] = Field(default_factory=uuid4)
-        name: str
+        name: str = Field(default=None)
+    
+    cmd = FakeCommand(name="hello")
+    assert cmd is not None
 
     @dataclass
     class FakeEntity:
         id: UUID = field(default_factory=uuid4)
-        name: str = field(default=None)
+        name: str = ""
 
     class FakeRepository:
         def __init__(self) -> None:
