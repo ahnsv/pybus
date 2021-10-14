@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py_bus"
-version = "0.1.0"
+version = "0.0.2"
 description = "Type-safe, high-performance message bus for python users"
 authors = ["ahnsv <ahnsv@bc.edu>"]
 packages = [
@@ -28,6 +28,25 @@ log_cli = true
 log_cli_level = "INFO"
 log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.0.2"
+version_files = [
+    "pyproject.toml:version"
+]
+style = [
+    ["qmark", "fg:#ff9d00 bold"],
+    ["question", "bold"],
+    ["answer", "fg:#ff9d00 bold"],
+    ["pointer", "fg:#ff9d00 bold"],
+    ["highlighted", "fg:#ff9d00 bold"],
+    ["selected", "fg:#cc5454"],
+    ["separator", "fg:#cc5454"],
+    ["instruction", ""],
+    ["text", ""],
+    ["disabled", "fg:#858585 italic"]
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
