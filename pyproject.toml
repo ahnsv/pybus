@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py_bus"
-version = "0.0.2"
+version = "0.1.0"
 description = "Type-safe, high-performance message bus for python users"
 authors = ["ahnsv <ahnsv@bc.edu>"]
 packages = [
@@ -31,7 +31,7 @@ log_cli_date_format = "%Y-%m-%d %H:%M:%S"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.0.2"
+version = "0.1.0"
 version_files = [
     "pyproject.toml:version"
 ]
