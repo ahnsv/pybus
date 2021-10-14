@@ -31,6 +31,8 @@ class DefaultMessageBus(MessageBus):
 
     def handle(self, message: BaseMessage) -> t.List[t.Any]:
         results = []
+        if self._middleware_chain:
+            message = self._middleware_chain.handle(message=message)
         for handler in self._handlers[type(message)]:
             result = handler(
                 message

@@ -40,13 +40,19 @@ class MessageBusMiddleware(ABC):
 
 class MessageBusMiddlewareChain:
     def __init__(self, middlewares: t.List[MessageBusMiddleware]) -> None:
-        self.middlewares = iter(middlewares)
+        self.middlewares = middlewares
 
     def apply(self):
+        middleware_iter = iter(self.middlewares)
         while True:
             try:
-                middleware = next(self.middlewares)
-                next_middleware = next(self.middlewares)
+                middleware = next(middleware_iter)
+                next_middleware = next(middleware_iter)
                 middleware.set_next(next_middleware)
             except StopIteration:
                 break
+    def handle(self, message: BaseMessage) -> ...: 
+        if not self.middlewares:
+            return
+
+        return self.middlewares[0].handle(message)
