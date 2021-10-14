@@ -64,8 +64,6 @@ def test_default_message_bus_handler_with_extra_parameter_should_pass(
         id: Union[UUID, str] = Field(default_factory=uuid4)
         name: str = Field(default=None)
     
-    cmd = FakeCommand(name="hello")
-    assert cmd is not None
 
     @dataclass
     class FakeEntity:
