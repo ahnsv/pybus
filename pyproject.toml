@@ -22,6 +22,7 @@ mypy = "^0.910"
 black = "21.5b2"
 pytest-benchmark = "^3.4.1"
 pytest-cov = "^3.0.0"
+commitizen = "^2.20.0"
 
 [tool.pytest.ini_options]
 log_cli = true

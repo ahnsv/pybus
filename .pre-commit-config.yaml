@@ -29,6 +29,13 @@ repos:
             types: [python]
             language: system
             entry: pycln .
+    - repo: local
+      hooks:
+        - id: commitizen
+          name: commitizen
+          stages: [commit-msg]
+          language: system
+          entry: commitizen check
     # - repo: local
     #   hooks:
     #       - id: mypy
