@@ -22,7 +22,7 @@ repos:
             types: [python]
             language: system
             files: \.isorted$
-            entry: isort .
+            entry: isort . --profile black
     - repo: local
       hooks:
           - id: pycln
