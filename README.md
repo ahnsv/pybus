@@ -10,17 +10,20 @@ Use messagebus pattern *without hassel*
 ```python
 # create messagebus
 from pybus.default.messagebus import DefaultMessageBus
+
 messagebus = DefaultMessageBus()
+
+from pydantic import Field
 
 # create messages(commands and events)
 from pybus.core.message import Command, Event
-from pydantic import Field
+
 
 class MyCommand(Command):
     name: str
 
 class MyEvent(Event):
-    name: str 
+    name: str
 
 # create handlers
 
@@ -30,7 +33,7 @@ def handle_mycommand(cmd: MyCommand):
 def handle_myevent(event: MyEvent):
     print(event.name)
 
-# add handlers to message bus 
+# add handlers to message bus
 messagebus.add_handler(MyCommand, handle_mycommand)
 messagebus.add_handler(MyEvent, handle_myevent)
 

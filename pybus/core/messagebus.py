@@ -3,7 +3,7 @@ from __future__ import annotations
 import typing as t
 from abc import ABC, abstractmethod
 
-from pybus.core.message import BaseMessage, BaseMessage
+from pybus.core.message import BaseMessage
 
 
 class MessageBus(ABC):
@@ -21,7 +21,7 @@ class MessageBus(ABC):
 
 
 class MessageBusMiddleware(ABC):
-    _next_middleware: MessageBusMiddleware 
+    _next_middleware: MessageBusMiddleware
 
     def set_next(self, middleware) -> t.Type[MessageBusMiddleware]:
         self._next_middleware = middleware
@@ -51,7 +51,8 @@ class MessageBusMiddlewareChain:
                 middleware.set_next(next_middleware)
             except StopIteration:
                 break
-    def handle(self, message: BaseMessage) -> ...: 
+
+    def handle(self, message: BaseMessage) -> ...:
         if not self.middlewares:
             return
 

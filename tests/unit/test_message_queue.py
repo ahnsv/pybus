@@ -1,10 +1,11 @@
+import logging
 import queue
+
 import pytest
 from _pytest.logging import LogCaptureFixture
-import logging
+
 from pybus.core.message import Command
 from pybus.core.messagebus import MessageBus
-
 from pybus.default.messagebus import DefaultMessageBus
 
 q = queue.Queue()
@@ -37,8 +38,8 @@ def fake_multithreaded_workers(
     fake_message_bus: MessageBus,
     num_of_workers=3,
 ):
-    from concurrent.futures.thread import ThreadPoolExecutor
     from concurrent.futures import as_completed
+    from concurrent.futures.thread import ThreadPoolExecutor
 
     def process():
         results = []
@@ -96,9 +97,9 @@ def test_message_queue_without_multithreading(fake_message_bus, benchmark):
 
 
 def test_message_queue_with_multithreading(fake_message_bus):
+    import itertools
     from concurrent.futures import as_completed
     from concurrent.futures.thread import ThreadPoolExecutor
-    import itertools
 
     def consume(_q):
         results = []

@@ -2,10 +2,7 @@ import typing as t
 from collections import defaultdict
 
 from pybus.core.message import BaseMessage
-from pybus.core.messagebus import (
-    MessageBus,
-    MessageBusMiddlewareChain,
-)
+from pybus.core.messagebus import MessageBus, MessageBusMiddlewareChain
 
 
 class DefaultMessageBus(MessageBus):
