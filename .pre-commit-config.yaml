@@ -21,6 +21,7 @@ repos:
             name: isort
             types: [python]
             language: system
+            files: \.isorted$
             entry: isort .
     - repo: local
       hooks:

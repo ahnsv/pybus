@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Union
 from uuid import UUID, uuid4
-from pydantic import Field
 
 import pytest
+from pydantic import Field
 
 from pybus.core.message import Command
 from pybus.default.messagebus import DefaultMessageBus
@@ -63,7 +63,6 @@ def test_default_message_bus_handler_with_extra_parameter_should_pass(
     class FakeCommand(Command):
         id: Union[UUID, str] = Field(default_factory=uuid4)
         name: str = Field(default=None)
-    
 
     @dataclass
     class FakeEntity:
