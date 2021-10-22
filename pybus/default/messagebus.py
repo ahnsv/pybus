@@ -31,9 +31,13 @@ class DefaultMessageBus(MessageBus):
         if self._middleware_chain:
             message = self._middleware_chain.handle(message=message)
         for handler in self._handlers[type(message)]:
-            result = handler(
-                message
-            )  # TODO(humphrey): check if event handler or command handler
+            try:
+                result = handler(
+                    message
+                )  # TODO(humphrey): check if event handler or command handler
+            except Exception:
+                raise
+                
             if result:
                 results.append(result)
         return results
