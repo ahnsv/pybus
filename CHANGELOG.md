@@ -1,3 +1,9 @@
+## v0.2.0 (2021-10-23)
+
+### Refactor
+
+- **pybus/default**: try-except block on handler
+
 ## 0.1.5 (2021-10-20)
 
 ## 0.1.4 (2021-10-15)
