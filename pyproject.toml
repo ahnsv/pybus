@@ -1,6 +1,7 @@
 [tool.poetry]
 name = "py_bus"
-version = "0.1.5"
+version = "0.2.0"
+readme = "README.md"
 description = "Type-safe, high-performance message bus for python users"
 authors = ["ahnsv <ahnsv@bc.edu>"]
 packages = [
